@@ -6,12 +6,18 @@ import { CurrencyInputComponent } from './components/currency-input/currency-inp
 import { ConverterComponent } from './components/converter/converter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CurrencyInputComponent,
-    ConverterComponent
+    ConverterComponent,
+    HeaderComponent,
+    FooterComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

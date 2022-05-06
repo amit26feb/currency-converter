@@ -1,6 +1,8 @@
-<input type="text" id="currency" placeholder="currency" [(ngModel)]="txtValue"/>
-<select [(ngModel)]="currencySymbol" >
-    <option  *ngFor="let curr of currencySymbols" [value] ="curr.Symbol">
+<div class="form-inline my-2 my-lg-0">
+  <input type="text" class="form-control mr-sm-2" id="currency" placeholder="" [(ngModel)]="txtValue" />
+  <select [(ngModel)]="currencySymbol" class="form-control">
+    <option *ngFor="let curr of currencySymbols" [value]="curr.Symbol">
       ({{curr.Symbol}}) - {{curr.Description}}
     </option>
-</select>
+  </select>
+</div>

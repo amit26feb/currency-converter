@@ -1,9 +1,19 @@
-<div>
-    <app-currency-input #inputCurrency >
-    </app-currency-input>
-    <br />
-    <app-currency-input #outputCurrency>
-    </app-currency-input>
-
-    <input type="button" id="btnConvert" value="Convert..." (click)="convertCurrency()" />
+<div class="row contaner border border-primary rounded">
+    <div class="row">
+        <div class="col-md-12">
+            <app-currency-input #inputCurrency>
+            </app-currency-input>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <app-currency-input #outputCurrency>
+            </app-currency-input>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="button" id="btnConvert" class="btn btn-primary" value="Convert..." (click)="convertCurrency()" />
+        </div>
+    </div>
 </div>
