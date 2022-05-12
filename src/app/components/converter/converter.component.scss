@@ -1,4 +1,9 @@
-.outerDiv{
-    border: 2px;
-    border-color: black;
-}
+.main-body {                /* body - or any parent wrapper */
+    display: flex;
+    flex-direction: column;
+    min-height: 83vh;
+  }
+  
+  .main-div {
+    flex: 1;
+  }
