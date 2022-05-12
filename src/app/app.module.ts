@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { CurrencyInputComponent } from './components/currency-input/currency-input.component';
 import { ConverterComponent } from './components/converter/converter.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
@@ -23,7 +23,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

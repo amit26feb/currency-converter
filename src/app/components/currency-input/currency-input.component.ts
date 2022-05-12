@@ -191,6 +191,9 @@ export class CurrencyInputComponent implements OnInit {
 
   }
 
+  currencyChanged(e: any): void {
+    this.currencySymbol = e.target.value;
+  }
   ngOnInit(): void {
 
   }
