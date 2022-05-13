@@ -16,12 +16,7 @@ export class ConverterComponent implements OnInit {
   @ViewChild("outputCurrency")
   private outputCurrency = new CurrencyInputComponent();
 
-
-
-  inputCurrType = "";
-  outputCurrType = "";
   REST_API_SERVER = "";
-  outputCurrencyObject: any;
 
   constructor(private httpClient: HttpClient) {
     this.REST_API_SERVER = "https://currencyapi.net/api/v1/rates?";
@@ -30,7 +25,7 @@ export class ConverterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  convertCurrency() {    
+  convertCurrency() {
     let params = new HttpParams();
     params = params.set("key", "HaSd8VL3KVwEVW6gsQb1pzGIlUZ6G2FWu2Py");
     params = params.set('output', "JSON");
@@ -39,9 +34,12 @@ export class ConverterComponent implements OnInit {
       (resp: any) => {
         let baseConversion = parseInt(this.inputCurrency.txtValue) / resp.rates[this.inputCurrency.currencySymbol];
         let destCurrencyRate = resp.rates[this.outputCurrency.currencySymbol];
-        console.log("baseConversion", baseConversion);
-        console.log("destCurrencyRate", destCurrencyRate);
         this.outputCurrency.txtValue = (baseConversion * destCurrencyRate).toString();
+
+        const decimalPosition = this.outputCurrency.txtValue.indexOf('.');
+        if (decimalPosition != -1 && this.outputCurrency.txtValue.substring(decimalPosition + 1, this.outputCurrency.txtValue.length).length > 2) {
+          this.outputCurrency.txtValue = this.outputCurrency.txtValue.substring(0, decimalPosition + 3);
+        }
       }
     );
   }

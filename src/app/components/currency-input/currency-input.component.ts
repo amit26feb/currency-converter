@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { CurrencySymbols } from "../../models/currency-model";
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-currency-input',
@@ -10,9 +8,10 @@ import { Observable } from 'rxjs';
 })
 export class CurrencyInputComponent implements OnInit {
   public currencySymbols = Array<CurrencySymbols>();
-  public txtValue = "";
+  public txtValue = "0.00";
   public currencySymbol = "";
 
+  @Input('disableInput') disableInput: boolean = false;
 
   constructor() {
     this.loadCurrencies();
@@ -196,5 +195,15 @@ export class CurrencyInputComponent implements OnInit {
   }
   ngOnInit(): void {
 
+  }
+
+  inputChanged(e: any): void {
+    const input = e.target.value;
+    this.txtValue = input;
+
+    const decimalPosition = input.indexOf('.');
+    if (decimalPosition != -1 && input.substring(decimalPosition + 1, input.length).length > 2) {
+      this.txtValue = input.substring(0, decimalPosition + 3);
+    }
   }
 }

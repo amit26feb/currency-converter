@@ -4,22 +4,23 @@
             <div class="col-md-4 ">
                 Source Currency:
                 <app-currency-input #inputCurrency>
-                    
+
                 </app-currency-input>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-4">
                 Target Currency:
-                <app-currency-input #outputCurrency>
+                <app-currency-input #outputCurrency [disableInput]="true">
                 </app-currency-input>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <input type="button" id="btnConvert" class="btn btn-primary" value="Convert..."
-                    (click)="convertCurrency()" />
+                    (click)="convertCurrency()"
+                    [disabled]="!inputCurrency.txtValue || !inputCurrency.currencySymbol || !outputCurrency.currencySymbol" />
             </div>
-        </div>
+        </div>        
     </div>
 </div>
